@@ -4,7 +4,7 @@ class NativeTool {
   val PREFIX = "\\u";
   def native2Ascii(chars: CharSequence): CharSequence = {
     var sb = new StringBuilder()
-    for (c <- chars.toString.toCharArray) {
+    for (c <- chars.toString) {
       sb.append(char2Ascii(c))
     }
 
