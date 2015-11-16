@@ -1,0 +1,47 @@
+package models
+
+import scala.collection.mutable
+
+/**
+  * Created by denny on 15-11-14.
+  * SysColumn--系统功能列表类
+  * columnId--标识ID　区别于主键id
+  * columnText--功能名称
+  * subColumnTexts--功能的子功能
+  * subColumnIds--对应子功能的状态0-无效　１-有效
+  */
+case class SysColumn(val columnId:Int, val columnText:String){
+  var subColumnIds:String = "0000000000000000000000000000000000000000"   //40 sub columns 用来标识对应位的subColumnTexts的值是否有效
+  var subColumnTexts:Seq[String] = Array[String]("","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","")  //40 sub columns
+
+  override var recorder: User = _
+  override var updater: User = _
+  override var idx: Int = _
+
+  /**
+    * 向该功能下增加子功能
+    * @param subColumnText
+    */
+  def addSubColumn(subColumnText:String):Unit= {
+    if (!subColumnTexts.contains(subColumnText)) {
+      val availableId = subColumnTexts.indexOf(subColumnTexts.filter(_.length == 0).head)//找到第一个可用的项
+      subColumnTexts = subColumnTexts.updated(availableId, subColumnText) //将子功能添加到subColumnTexts
+      subColumnIds = subColumnIds.updated(availableId, '1')//同时将subColumnIds的对应位置1
+    }
+  }
+
+  /**
+    * 从该功能下移除子功能
+    * @param subColumnText
+    */
+  def removeSubColumn(subColumnText:String):Unit={
+    if(subColumnTexts.contains(subColumnText)){
+      val idx = subColumnTexts.indexOf(subColumnText)//找到需要移除的子功能的位置
+      subColumnTexts = subColumnTexts.updated(idx, "")//同时将subColumnTexts的对应位置清空
+      subColumnIds = subColumnIds.updated(idx, '0')//同时将subColumnIds的对应位置0
+    }
+  }
+}
+
+object SysColumn{
+}
