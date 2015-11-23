@@ -1,4 +1,6 @@
-package models
+package models.traits
+
+import models.User
 
 /**
   * Created by denny on 15-11-14.

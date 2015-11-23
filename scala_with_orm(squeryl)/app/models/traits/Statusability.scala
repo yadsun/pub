@@ -1,4 +1,4 @@
-package models
+package models.traits
 
 /**
   * Created by denny on 15-11-14.

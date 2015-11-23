@@ -1,4 +1,4 @@
-package models
+package models.author
 
 import play.api.libs.json.{Format, Json}
 import slick.driver.PostgresDriver.api._
