@@ -29,11 +29,7 @@ case class EstimateRecord(beEstimated:String, estimate:String,item1:Double, item
                          item33:Double,item34:Double, item35:Double, item36:Double, item37:Double, item38:Double, item39:Double,
                          item40:Double,id: Option[Long] = None){
     this(beEstimated,estimate,item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13, item14, item15, item16, item17, item18, item19, item20, item21, item22, item23, item24, item25, item26, item27, item28, item29, item30, item31, item32, item33, item34, item35, item36, item37, item38, item39, item40)
-    super.recorderId = recorderId
-    super.recordTime = recordTime
-    super.updaterId = updaterId
-    super.updateTime = updateTime
-    super.status = status
+
   }
 }
 
